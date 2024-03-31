@@ -1,5 +1,5 @@
 # alice_in_wonderland = '"Would you tell me, please, which way I ought to go from here?"\n"That depends a good deal on where you want to get to," said the Cat.\n"I don't much care where ——" said Alice.\n"Then it doesn't matter which way you go," said the Cat.\n"—— so long as I get somewhere," Alice added as an explanation.\n"Oh, you're sure to do that," said the Cat, "if you only walk long enough."'
-
+from _lsprof import profiler_entry
 
 alice_in_wonderland = '''"Would you tell me, please, which way I ought to go from here?"
 "That depends a good deal on where you want to get to," said the Cat.
@@ -144,10 +144,8 @@ tank_capacity = 48
 total_fuel_for_trip = (distance / interval) * fuel_consumption
 print("Для подорожі необхідно " + total_fuel_for_trip.__str__()+" літри")
 pitstop_count = 0
-if (distance % ((tank_capacity * interval) / fuel_consumption)) == 0:
-    pitstop_count = distance / ((tank_capacity * interval) / fuel_consumption)
-    pitstop_count = pitstop_count.__int__()
+if (total_fuel_for_trip%tank_capacity==0):
+    pitstop_count = total_fuel_for_trip / tank_capacity - 1
 else:
-    pitstop_count = distance / ((tank_capacity * interval) / fuel_consumption)
-    pitstop_count = pitstop_count.__int__()
-print("Необхідно:", pitstop_count, "зупинок(ки)")
+    pitstop_count = total_fuel_for_trip / tank_capacity
+print("Необхідно:", pitstop_count.__int__(), "зупинок(ки)")
