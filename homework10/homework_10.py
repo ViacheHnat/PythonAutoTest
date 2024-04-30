@@ -20,15 +20,15 @@ def log_event(username: str, status: str):
     * expired - пароль застаріває і його слід замінити, логується на рівні warning
     * failed  - пароль невірний, логується на рівні error
     """
-    # log_message = f"Login event - Username: {username}, Status: {status}"
-    if type(username) is str and type(status) is str:
-        log_message = f"Login event - Username: {username}, Status: {status}"
-    elif type(username) is not str and type(status) is str:
-        log_message = f"Login event - Username: {username} - Wrong type, must be str, Status: {status}"
-    elif type(username) is str and type(status) is not str:
-        log_message = f"Login event - Username: {username}, Status: {status} - Wrong type, must be str"
-    else:
-        log_message = f"Login event - Username: {username} - Wrong type, must be str, Status: {status} - Wrong type, must be str"
+    log_message = f"Login event - Username: {username}, Status: {status}"
+    # if type(username) is str and type(status) is str:
+    #     log_message = f"Login event - Username: {username}, Status: {status}"
+    # elif type(username) is not str and type(status) is str:
+    #     log_message = f"Login event - Username: {username} - Wrong type, must be str, Status: {status}"
+    # elif type(username) is str and type(status) is not str:
+    #     log_message = f"Login event - Username: {username}, Status: {status} - Wrong type, must be str"
+    # else:
+    #     log_message = f"Login event - Username: {username} - Wrong type, must be str, Status: {status} - Wrong type, must be str"
 
     # Створення та налаштування логера
     logging.basicConfig(
@@ -50,31 +50,92 @@ def log_event(username: str, status: str):
 class TestLogingUser(unittest.TestCase):
 
     def test_user_name_str(self):
-        log_event("Viacheslav", "success")
+        name_for_log_event = "Viacheslav"
+        status_for_log_event = "success"
+        assert type(
+            name_for_log_event) is str, f'Username: {name_for_log_event} - Wrong type, must be str. Now - {type(name_for_log_event)}'
+        assert type(
+            status_for_log_event) is str, f'Status: {status_for_log_event} - Wrong type, must be str. Now - {type(status_for_log_event)}'
+        log_event(name_for_log_event, status_for_log_event)
 
     def test_user_status_expired(self):
-        log_event("Viacheslav", "expired")
+        name_for_log_event = "Viacheslav"
+        status_for_log_event = "expired"
+        assert type(
+            name_for_log_event) is str, f'Username: {name_for_log_event} - Wrong type, must be str. Now - {type(name_for_log_event)}'
+        assert type(
+            status_for_log_event) is str, f'Status: {status_for_log_event} - Wrong type, must be str. Now - {type(status_for_log_event)}'
+        log_event(name_for_log_event, status_for_log_event)
 
     def test_user_status_success(self):
-        log_event("Viacheslav", "success")
+        name_for_log_event = "Viacheslav"
+        status_for_log_event = "success"
+        assert type(
+            name_for_log_event) is str, f'Username: {name_for_log_event} - Wrong type, must be str. Now - {type(name_for_log_event)}'
+        assert type(
+            status_for_log_event) is str, f'Status: {status_for_log_event} - Wrong type, must be str. Now - {type(status_for_log_event)}'
+        log_event(name_for_log_event, status_for_log_event)
 
     def test_user_status_else(self):
-        log_event("Viacheslav", "unknown status")
+        name_for_log_event = "Viacheslav"
+        status_for_log_event = "unknown status"
+        assert type(
+            name_for_log_event) is str, f'Username: {name_for_log_event} - Wrong type, must be str. Now - {type(name_for_log_event)}'
+        assert type(
+            status_for_log_event) is str, f'Status: {status_for_log_event} - Wrong type, must be str. Now - {type(status_for_log_event)}'
+        log_event(name_for_log_event, status_for_log_event)
 
     def test_user_name_bool(self):
-        log_event(True, "success")
+        name_for_log_event = True
+        status_for_log_event = "success"
+        assert type(
+            name_for_log_event) is str, f'Username: {name_for_log_event} - Wrong type, must be str. Now - {type(name_for_log_event)}'
+        assert type(
+            status_for_log_event) is str, f'Status: {status_for_log_event} - Wrong type, must be str. Now - {type(status_for_log_event)}'
+        log_event(name_for_log_event, status_for_log_event)
 
     def test_user_status_bool(self):
-        log_event("Viacheslav", False)
+        name_for_log_event = "Viacheslav"
+        status_for_log_event = False
+        assert type(
+            name_for_log_event) is str, f'Username: {name_for_log_event} - Wrong type, must be str. Now - {type(name_for_log_event)}'
+        assert type(
+            status_for_log_event) is str, f'Status: {status_for_log_event} - Wrong type, must be str. Now - {type(status_for_log_event)}'
+        log_event(name_for_log_event, status_for_log_event)
 
     def test_user_name_int(self):
-        log_event(1245, "success")
+        name_for_log_event = 1245
+        status_for_log_event = "success"
+        assert type(
+            name_for_log_event) is str, f'Username: {name_for_log_event} - Wrong type, must be str. Now - {type(name_for_log_event)}'
+        assert type(
+            status_for_log_event) is str, f'Status: {status_for_log_event} - Wrong type, must be str. Now - {type(status_for_log_event)}'
+        log_event(name_for_log_event, status_for_log_event)
 
     def test_user_name_and_status_int_format(self):
-        log_event(12345, 123)
+        name_for_log_event = 12345
+        status_for_log_event = 123
+        assert type(
+            name_for_log_event) is str, f'Username: {name_for_log_event} - Wrong type, must be str. Now - {type(name_for_log_event)}'
+        assert type(
+            status_for_log_event) is str, f'Status: {status_for_log_event} - Wrong type, must be str. Now - {type(status_for_log_event)}'
+        log_event(name_for_log_event, status_for_log_event)
+        # log_event(12345, 123)
 
     def test_user_status_int_format(self):
-        log_event("Viacheslav", 56)
+        name_for_log_event = "Viacheslav"
+        status_for_log_event = 56
+        assert type(
+            name_for_log_event) is str, f'Username: {name_for_log_event} - Wrong type, must be str. Now - {type(name_for_log_event)}'
+        assert type(
+            status_for_log_event) is str, f'Status: {status_for_log_event} - Wrong type, must be str. Now - {type(status_for_log_event)}'
+        log_event(name_for_log_event, status_for_log_event)
 
     def test_missing_arguments(self):
-        log_event(None,None)
+        name_for_log_event = None
+        status_for_log_event = None
+        assert type(
+            name_for_log_event) is str, f'Username: {name_for_log_event} - Wrong type, must be str. Now - {type(name_for_log_event)}'
+        assert type(
+            status_for_log_event) is str, f'Status: {status_for_log_event} - Wrong type, must be str. Now - {type(status_for_log_event)}'
+        log_event(name_for_log_event, status_for_log_event)
