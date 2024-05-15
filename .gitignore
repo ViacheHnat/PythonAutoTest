@@ -1,2 +1,4 @@
 .idea/
 .venv/
+/homework10/login_system.log
+*.pyc
