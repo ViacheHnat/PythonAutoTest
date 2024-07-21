@@ -1,10 +1,8 @@
 from selenium import webdriver
 import time
-
 from selenium.webdriver.common.by import By
 
 driver = webdriver.Chrome()
-
 driver.maximize_window()
 driver.get("https://guest:welcome2qauto@qauto2.forstudy.space")
 
@@ -22,6 +20,7 @@ driver.find_element(By.XPATH,"//p[@class='about-block_descr lead' and text()='Wa
 driver.find_element(By.XPATH, "/html/body/app-root/app-global-layout/div/app-footer/footer/div/div/div[1]/p[1]")
 time.sleep(1)
 
+
 # CSS
 driver.find_element(By.CSS_SELECTOR, "div.header_inner.d-flex")
 driver.find_element(By.CSS_SELECTOR, "button[appscrollto=aboutSection]")
@@ -34,3 +33,4 @@ driver.find_element(By.CSS_SELECTOR, ".icon-telegram")
 driver.find_element(By.CSS_SELECTOR, ".mt-3 .about-block_title")
 driver.find_element(By.CSS_SELECTOR, ".mt-3 .about-block .lead")
 driver.find_element(By.CSS_SELECTOR, "body > app-root > app-global-layout > div > app-footer > footer > div > div > div.col-7.d-flex.flex-column.justify-content-center.footer_item.-left > p:nth-child(1)")
+
